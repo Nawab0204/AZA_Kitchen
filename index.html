@@ -118,9 +118,18 @@
                 from { opacity: 0; transform: translateY(20px); }
                 to { opacity: 1; transform: translateY(0); }
             }
+
+            .animate-float {
+                animation: float 4s ease-in-out infinite;
+            }
+
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-12px); }
+                100% { transform: translateY(0px); }
+            }
         }
     </style>
-<link rel="stylesheet" href="/index.css">
 </head>
 <body>
     <div id="root"></div>
@@ -138,7 +147,7 @@
             PORTFOLIO: [
                 {
                   id: 1,
-                  title: "Shaker-Style Doors",
+                  title: "Slab-Front Handleless",
                   subtitle: "Minimalist Design",
                   image: "assets/images/portfolio1.jpg",
                   description: "Achieve a seamless, minimalist look with smooth, handleless doors. Perfect for a clean and ultra-modern aesthetic."
@@ -196,6 +205,42 @@
             }, [name, className]);
             return <i data-lucide={name} className={className} ref={iconRef}></i>;
         };
+
+        // --- Social/Custom Icons ---
+        const WhatsAppLogo = ({ className }) => (
+            <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+            </svg>
+        );
+
+        const FacebookLogo = ({ className }) => (
+            <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+        );
+
+        const InstagramLogo = ({ className }) => (
+            <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            </svg>
+        );
+
+        const FloatingWhatsApp = () => (
+            <a 
+                href="https://wa.me/447727370467" 
+                target="_blank" 
+                rel="noreferrer"
+                className="fixed bottom-8 right-8 z-[100] bg-[#25D366] text-white p-4 rounded-full shadow-[0_8px_30px_rgb(37,211,102,0.4)] hover:shadow-[0_8px_40px_rgb(37,211,102,0.6)] transition-all duration-300 animate-float group flex items-center justify-center cursor-pointer hover:bg-[#20BE59]"
+                aria-label="Chat on WhatsApp"
+            >
+                <WhatsAppLogo className="w-8 h-8" />
+                <span className="absolute right-full mr-4 bg-white text-neutral-900 text-sm font-bold px-4 py-2 rounded-2xl shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+                    Start a Chat
+                </span>
+            </a>
+        );
 
         // --- Components ---
 
@@ -291,10 +336,10 @@
 
                     <div className="flex gap-6">
                         <a href="https://www.instagram.com/abuzaid_2222/reels/" target="_blank" rel="noreferrer" className="w-12 h-12 glass-card rounded-2xl flex items-center justify-center hover:bg-neutral-900 hover:text-white transition-all shadow-sm">
-                            <Icon name="Instagram" className="w-5 h-5" />
+                            <InstagramLogo className="w-5 h-5" />
                         </a>
                         <a href="#" className="w-12 h-12 glass-card rounded-2xl flex items-center justify-center hover:bg-neutral-900 hover:text-white transition-all shadow-sm">
-                            <Icon name="Facebook" className="w-5 h-5" />
+                            <FacebookLogo className="w-5 h-5" />
                         </a>
                     </div>
                 </div>
@@ -527,7 +572,7 @@
                                         </div>
                                         <div>
                                             <p className="text-xs uppercase tracking-widest font-black text-neutral-500 mb-1">Birmingham Studio</p>
-                                            <p className="text-lg font-bold">Birmingham</p>
+                                            <p className="text-lg font-bold">Birmingham Design Hub, B1 2JP, UK</p>
                                         </div>
                                     </div>
                                     
@@ -537,7 +582,7 @@
                                         </div>
                                         <div>
                                             <p className="text-xs uppercase tracking-widest font-black text-neutral-500 mb-1">Direct Contact</p>
-                                            <p className="text-lg font-bold">7727 370467</p>
+                                            <p className="text-lg font-bold">+44 7727 370467</p>
                                         </div>
                                     </div>
 
@@ -553,7 +598,7 @@
                                 </div>
                             </div>
 
-                             <div className="mt-16 flex gap-6">
+                            <div className="mt-16 flex gap-6">
                                 <a href="https://www.instagram.com/abuzaid_2222/reels/" target="_blank" rel="noreferrer" className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center hover:bg-white hover:text-neutral-900 transition-all shadow-lg">
                                     <InstagramLogo className="w-6 h-6" />
                                 </a>
@@ -638,6 +683,7 @@
                     </main>
 
                     <Footer />
+                    <FloatingWhatsApp />
                 </div>
             );
         };
@@ -645,6 +691,5 @@
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<App />);
     </script>
-<script type="module" src="/index.tsx"></script>
 </body>
 </html>
