@@ -14,6 +14,16 @@
     
     <title>AZA Kitchen and Bedroom | Bespoke Wardrobe Specialists Birmingham</title>
 
+    <link rel="canonical" href="https://azakitchens.uk/">
+
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,300;7..72,400;7..72,500;7..72,600&family=Nunito+Sans:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="assets/images/image1.jpg" as="image">
+
     <!-- Structured Data (JSON-LD) for Local Business -->
     <script type="application/ld+json">
     {
@@ -23,7 +33,7 @@
       "image": "https://azakitchens.uk/assets/images/image1.jpg",
       "@id": "https://azakitchens.uk",
       "url": "https://azakitchens.uk",
-      "telephone": "+44 7727 370467",
+      "telephone": "+44 7883 758995",
       "email": "Info@azakitchens.uk",
       "address": {
         "@type": "PostalAddress",
@@ -58,7 +68,7 @@
     </script>
     
     <!-- Tailwind CSS 4 -->
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4" defer></script>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,15 +76,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,300;7..72,400;7..72,500;7..72,600&family=Nunito+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     
     <!-- React & Babel -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" defer></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" defer></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js" defer></script>
 
     <!-- EmailJS -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
 
     <style type="text/tailwindcss">
         @theme {
@@ -132,7 +142,42 @@
     </style>
 </head>
 <body>
-    <div id="root"></div>
+    <!-- SEO Fallback Content if JS is disabled or slow. React will overwrite this upon hydration. -->
+    <div id="root">
+        <header style="padding: 20px; background: #171717; color: white;">
+            <h1>AZA Kitchen and Bedroom</h1>
+            <p>Bespoke Wardrobe & Kitchen Specialists in Birmingham</p>
+        </header>
+        <main style="padding: 20px; font-family: sans-serif; line-height: 1.6;">
+            <section id="hero">
+                <h2>Bespoke Craftsmanship for Your Home.</h2>
+                <p>Transforming living spaces with high-end, custom-fitted kitchens and bedroom wardrobes that blend functional excellence with breathtaking Birmingham design.</p>
+                <img src="assets/images/image1.jpg" alt="Luxury Master Kitchen" width="600" />
+            </section>
+            <section id="services">
+                <h2>Modern Cabinetry & Wardrobes</h2>
+                <p>We believe in making things fit perfectly. From complex alcoves to expansive wall spaces, our meticulous approach ensures seamless integration tailored exactly to your home's unique dimensions.</p>
+                <ul>
+                    <li>Precision Craftsmanship</li>
+                    <li>Uncompromising Materials</li>
+                    <li>Client-Centric Process</li>
+                </ul>
+            </section>
+            <section id="kitchen-portfolio">
+                <h2>Our Kitchens</h2>
+                <p>A curated selection of our finest bespoke kitchen projects across the UK.</p>
+            </section>
+            <section id="contact">
+                <h2>Let's Connect.</h2>
+                <p>We're based in Birmingham and serve clients across the Midlands. Reach out for a consultation.</p>
+                <p>Email: Info@azakitchens.uk</p>
+                <p>Phone: +44 7883 758995 / +44 7727 370467</p>
+            </section>
+        </main>
+        <footer style="padding: 20px; background: #e5e7eb;">
+            <p>© 2026 AZA Kitchen and Bedroom Wardrobes - Birmingham, UK</p>
+        </footer>
+    </div>
 
     <script type="text/babel">
         const { useState, useEffect, useRef } = React;
@@ -144,10 +189,10 @@
             ABOUT_KITCHEN_WORK: "assets/images/about.jpg",
             ABOUT_CRAFTSMANSHIP_1: "assets/images/image2.jpg",
             ABOUT_CRAFTSMANSHIP_2: "assets/images/image3.jpg",
-            PORTFOLIO: [
+            KITCHENS: [
                 {
                   id: 1,
-                  title: "shaker-style doors",
+                  title: "Slab-Front Handleless",
                   subtitle: "Minimalist Design",
                   image: "assets/images/portfolio1.jpg",
                   description: "Achieve a seamless, minimalist look with smooth, handleless doors. Perfect for a clean and ultra-modern aesthetic."
@@ -186,6 +231,99 @@
                   subtitle: "Sophisticated Accents",
                   image: "assets/images/portfolio6.jpg",
                   description: "Horizontally and vertically mounted elegant black or brushed metal bar handles for a refined final touch."
+                },
+                {
+                  id: 7,
+                  title: "Classic White Shaker",
+                  subtitle: "Timeless Elegance",
+                  image: "assets/images/image7.jpg",
+                  description: "Timeless white shaker kitchen with wooden countertops and elegant black hardware for a bright, classic feel."
+                },
+                {
+                  id: 8,
+                  title: "Modern Gloss & Oak",
+                  subtitle: "Contemporary Warmth",
+                  image: "assets/images/image8.jpg",
+                  description: "Sleek white gloss cabinets paired with a solid oak island, blending contemporary shine with natural warmth."
+                },
+                {
+                  id: 9,
+                  title: "Marble & Soft Grey",
+                  subtitle: "Sophisticated Luxury",
+                  image: "assets/images/image9.jpg",
+                  description: "Sophisticated light grey cabinetry set against stunning marble floors and backsplashes, creating an opulent atmosphere."
+                },
+                {
+                  id: 10,
+                  title: "Compact Chic",
+                  subtitle: "Efficient Design",
+                  image: "assets/images/image10.jpg",
+                  description: "Maximizing space with crisp white modern units and practical wooden worktops, perfect for efficient culinary prep."
+                },
+                {
+                  id: 11,
+                  title: "Traditional Grey Shaker",
+                  subtitle: "Detailed Craftsmanship",
+                  image: "assets/images/image11.jpg",
+                  description: "Beautifully detailed grey shaker cabinets with glass display units and striking marble-veined quartz surfaces."
+                },
+                {
+                  id: 12,
+                  title: "Island Centric",
+                  subtitle: "Social Hub",
+                  image: "assets/images/image12.jpg",
+                  description: "A statement grey shaker kitchen featuring an integrated island with stylish pendant lighting for the perfect social hub."
+                },
+                {
+                  id: 13,
+                  title: "Functional Utility",
+                  subtitle: "Organized Haven",
+                  image: "assets/images/image13.jpg",
+                  description: "Custom-built open shelving and complementary base units, turning a practical utility space into an organized haven."
+                }
+            ],
+            WARDROBES: [
+                {
+                  id: 1,
+                  title: "Mirrored Sliding Walk-in",
+                  subtitle: "Space Saving",
+                  image: "assets/images/bedroom1.jpg",
+                  description: "Space-saving sliding doors featuring a central mirror and sleek matte black frames for a contemporary bedroom."
+                },
+                {
+                  id: 2,
+                  title: "Commercial Pharmacy",
+                  subtitle: "Bespoke Fit-out",
+                  image: "assets/images/image15.jpg",
+                  description: "Bespoke commercial shelving and counter installations, designed for precision, durability, and practical workflow."
+                },
+                {
+                  id: 3,
+                  title: "Bespoke Alcove Fit",
+                  subtitle: "Seamless Integration",
+                  image: "assets/images/bedroom2.jpg",
+                  description: "Seamlessly integrated floor-to-ceiling grey wardrobes, custom-built to maximize storage around existing room features."
+                },
+                {
+                  id: 4,
+                  title: "Custom Interiors",
+                  subtitle: "Smart Storage",
+                  image: "assets/images/bedroom3.jpg",
+                  description: "Thoughtfully designed wardrobe interiors with adjustable shelving, double hanging rails, and integrated drawers."
+                },
+                {
+                  id: 5,
+                  title: "Spacious Open Frame",
+                  subtitle: "Ultimate Organization",
+                  image: "assets/images/bedroom4.jpg",
+                  description: "A robust internal wardrobe frame designed for ultimate organization, ready to be enclosed by elegant sliding doors."
+                },
+                {
+                  id: 6,
+                  title: "Minimalist Flush Fit",
+                  subtitle: "Understated Elegance",
+                  image: "assets/images/bedroom5.jpg",
+                  description: "Clean, handleless grey wardrobe fronts that provide an ultra-modern, understated elegance to any master bedroom."
                 }
             ],
             CTA_VIDEO: "assets/videos/video1.mp4"
@@ -229,7 +367,7 @@
 
         const FloatingWhatsApp = () => (
             <a 
-                href="https://wa.me/447727370467" 
+                href="https://wa.me/447883758995" 
                 target="_blank" 
                 rel="noreferrer"
                 className="fixed bottom-8 right-8 z-[100] bg-[#25D366] text-white p-4 rounded-full shadow-[0_8px_30px_rgb(37,211,102,0.4)] hover:shadow-[0_8px_40px_rgb(37,211,102,0.6)] transition-all duration-300 animate-float group flex items-center justify-center cursor-pointer hover:bg-[#20BE59]"
@@ -249,7 +387,8 @@
             const navLinks = [
                 { name: "Home", id: "home" },
                 { name: "About", id: "about" },
-                { name: "Portfolio", id: "portfolio" },
+                { name: "Kitchens", id: "kitchens" },
+                { name: "Wardrobes", id: "wardrobes" },
                 { name: "Contact", id: "contact" }
             ];
 
@@ -365,7 +504,7 @@
                                 "Transforming living spaces with high-end, custom-fitted kitchens and bedroom wardrobes that blend functional excellence with breathtaking Birmingham design."
                             </p>
                             <div className="flex flex-wrap gap-5">
-                                <button onClick={() => setActivePage('portfolio')} className="bg-neutral-900 text-white px-10 py-5 rounded-2xl shadow-2xl font-black text-lg hover:bg-neutral-800 transition-all flex items-center gap-3">
+                                <button onClick={() => setActivePage('kitchens')} className="bg-neutral-900 text-white px-10 py-5 rounded-2xl shadow-2xl font-black text-lg hover:bg-neutral-800 transition-all flex items-center gap-3">
                                     Explore Work <Icon name="ArrowRight" className="w-5 h-5" />
                                 </button>
                                 <button onClick={() => setActivePage('contact')} className="glass-card text-neutral-900 px-10 py-5 rounded-2xl font-black text-lg border border-white/40 hover:bg-white/40 transition-all shadow-lg">
@@ -375,7 +514,7 @@
                         </div>
                         <div className="md:col-span-5 relative">
                             <div className="glass-card rounded-[40px] overflow-hidden p-3 border-white/80 shadow-2xl">
-                                <img src={ASSETS.HERO_IMAGE} className="w-full h-[500px] object-cover rounded-[30px]" alt="Luxury Kitchen" />
+                                <img src={ASSETS.HERO_IMAGE} className="w-full h-[500px] object-cover rounded-[30px]" alt="Luxury Bespoke Kitchen Installation" fetchPriority="high" />
                             </div>
                         </div>
                     </div>
@@ -393,7 +532,7 @@
                         </div>
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-                            {ASSETS.PORTFOLIO.map((item, i) => (
+                            {ASSETS.KITCHENS.slice(0,6).map((item, i) => (
                                 <div 
                                     key={i} 
                                     className="glass-card p-10 rounded-[40px] border-white/30 hover:-translate-y-2 transition-transform duration-300"
@@ -472,52 +611,149 @@
 
         const About = () => (
             <div className="pt-40 px-6 max-w-7xl mx-auto pb-24 animate-fade-in">
-                <div className="text-center mb-20">
+                {/* Hero Section */}
+                <div className="text-center mb-24">
+                    <div className="text-[10px] uppercase tracking-[0.4em] font-black text-neutral-400 mb-4">About Us</div>
                     <h1 className="text-5xl md:text-8xl font-serif font-black text-neutral-900 mb-8 leading-none">The <span className="italic text-neutral-500">AZA Way.</span></h1>
-                    <p className="text-neutral-500 text-xl md:text-2xl italic font-medium max-w-3xl mx-auto">"Defining the standard for high-end cabinetry and wardrobe solutions across Birmingham and the Midlands."</p>
+                    <p className="text-neutral-500 text-xl md:text-2xl italic font-medium max-w-3xl mx-auto">"Defining the standard for high-end cabinetry, fitted kitchens, and bespoke wardrobe solutions across Birmingham."</p>
                 </div>
 
+                {/* Our Story */}
                 <div className="grid md:grid-cols-2 gap-16 items-center mb-32">
                     <div className="relative">
                         <div className="glass-card rounded-[40px] p-3 shadow-2xl border-white overflow-hidden">
-                            <img src={ASSETS.ABOUT_KITCHEN_WORK} className="w-full h-[600px] object-cover rounded-[30px]" alt="Working on kitchen" />
+                            <img src={ASSETS.ABOUT_KITCHEN_WORK} className="w-full h-[600px] object-cover rounded-[30px]" alt="Master installer working on a bespoke kitchen" loading="lazy" />
                         </div>
                         <div className="absolute -bottom-10 -right-10 bg-neutral-900 p-8 rounded-[32px] text-white hidden md:block">
                            <Icon name="Award" className="w-10 h-10 mb-4 text-neutral-500" />
                            <p className="text-2xl font-black">Certified</p>
-                           <p className="text-sm opacity-60">Installation Pros</p>
+                           <p className="text-sm opacity-60">Master Installers</p>
                         </div>
                     </div>
                     <div>
-                        <h2 className="text-3xl md:text-5xl font-serif font-black text-neutral-900 mb-8">Our <span className="italic text-neutral-500">Story</span></h2>
-                        <div className="space-y-6 text-lg text-neutral-600 leading-relaxed italic">
-                            <p>AZA Kitchen and Bedroom Wardrobes was founded on a simple principle: high-end design should be matched with flawless execution. We noticed a gap in the market for installers who truly cared about the final millimeter.</p>
-                            <p>Today, our team of dedicated carpenters and designers work from our Birmingham hub, bringing luxury storage and culinary spaces to life. We specialize in both large-scale kitchen transformations and precision bedroom wardrobe systems.</p>
-                            <p>Every project we undertake is a testament to our dedication to the craft. We don't just deliver furniture; we deliver the infrastructure of your home life.</p>
+                        <h2 className="text-3xl md:text-5xl font-serif font-black text-neutral-900 mb-8">Crafting Your <span className="italic text-neutral-500">Sanctuary</span></h2>
+                        <div className="space-y-6 text-lg text-neutral-600 leading-relaxed font-serif">
+                            <p>AZA Kitchen and Bedroom Wardrobes was founded on a simple principle: high-end design must be matched with flawless execution. We observed a market filled with standard solutions, but homes deserve more. We noticed a gap for installers who truly care about the final millimeter.</p>
+                            <p>Operating from the heart of Birmingham, our dedicated team of carpenters, designers, and fitters bring luxury storage and culinary spaces to life. We specialize in large-scale kitchen transformations, precision bedroom wardrobes, and bespoke commercial fit-outs like pharmacy shelving.</p>
+                            <p>Every piece of wood we cut and every hinge we secure is a testament to our profound dedication to the craft. We don't just assemble furniture; we build the enduring infrastructure of your daily life, creating spaces where families gather and mornings begin smoothly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Core Values */}
+                <div className="bg-neutral-900 rounded-[40px] p-12 md:p-20 text-white mb-32 shadow-2xl relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+                    <div className="relative z-10">
+                        <h2 className="text-3xl md:text-5xl font-serif font-black mb-16 text-center">Our <span className="italic text-neutral-400">Pillars of Quality</span></h2>
+                        <div className="grid md:grid-cols-3 gap-12 text-center md:text-left">
+                            <div>
+                                <Icon name="Hammer" className="w-8 h-8 mb-6 text-neutral-400 mx-auto md:mx-0" />
+                                <h4 className="text-xl font-bold mb-4">Precision Craftsmanship</h4>
+                                <p className="text-neutral-400 leading-relaxed text-sm">We believe in making things fit perfectly. From complex alcoves to expansive wall spaces, our meticulous approach ensures seamless integration tailored exactly to your home's unique dimensions.</p>
+                            </div>
+                            <div>
+                                <Icon name="Shield" className="w-8 h-8 mb-6 text-neutral-400 mx-auto md:mx-0" />
+                                <h4 className="text-xl font-bold mb-4">Uncompromising Materials</h4>
+                                <p className="text-neutral-400 leading-relaxed text-sm">A beautiful design is only as good as the materials used. We source premium timbers, robust hardware, and exquisite finishes to guarantee longevity and enduring beauty.</p>
+                            </div>
+                            <div>
+                                <Icon name="HeartHandshake" className="w-8 h-8 mb-6 text-neutral-400 mx-auto md:mx-0" />
+                                <h4 className="text-xl font-bold mb-4">Client-Centric Process</h4>
+                                <p className="text-neutral-400 leading-relaxed text-sm">Your vision guides us. We consult closely at every stage—from initial measurement to final installation—ensuring the resulting space feels authentically yours and functions beautifully.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* The Process */}
+                <div className="grid md:grid-cols-2 gap-16 items-center">
+                    <div className="order-2 md:order-1">
+                        <div className="text-[10px] uppercase tracking-[0.4em] font-black text-neutral-400 mb-4">How We Work</div>
+                        <h2 className="text-3xl md:text-5xl font-serif font-black text-neutral-900 mb-8">From Concept to <span className="italic text-neutral-500">Completion</span></h2>
+                        
+                        <div className="space-y-8 relative before:absolute before:inset-0 before:ml-6 before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-neutral-300 before:to-transparent">
+                            {[
+                                { step: "01", title: "Consultation & Design", desc: "We discuss your needs, take precise measurements, and propose designs that maximize both aesthetics and function." },
+                                { step: "02", title: "Material Selection", desc: "Choose from our extensive range of premium finishes, colors, worktops, and elegant hardware." },
+                                { step: "03", title: "Bespoke Manufacturing", desc: "We prepare the cabinetry to exact specifications, ensuring everything is ready for a smooth installation." },
+                                { step: "04", title: "Expert Installation", desc: "Our Birmingham-based team installs your new kitchen or wardrobe with minimal disruption and absolute precision." }
+                            ].map((item, i) => (
+                                <div key={i} className="flex gap-6 relative">
+                                    <div className="flex-shrink-0 w-12 h-12 rounded-full border-2 border-neutral-200 bg-white flex items-center justify-center font-black text-neutral-400 z-10 shadow-sm transition-colors hover:border-neutral-900 hover:text-neutral-900">
+                                        {item.step}
+                                    </div>
+                                    <div className="pt-2 pb-8 border-b border-neutral-200/60 last:border-0">
+                                        <h4 className="text-xl font-bold text-neutral-900 mb-2">{item.title}</h4>
+                                        <p className="text-neutral-500 text-sm leading-relaxed">{item.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="order-1 md:order-2">
+                        <div className="grid grid-cols-2 gap-4">
+                             <img src={ASSETS.ABOUT_CRAFTSMANSHIP_1} className="w-full h-80 object-cover rounded-[32px] glass-card p-1 shadow-lg mt-12 hover:-translate-y-2 transition-transform duration-500" alt="Craftsmanship detail" loading="lazy" />
+                             <img src={ASSETS.ABOUT_CRAFTSMANSHIP_2} className="w-full h-80 object-cover rounded-[32px] glass-card p-1 shadow-lg hover:-translate-y-2 transition-transform duration-500" alt="Workspace" loading="lazy" />
                         </div>
                     </div>
                 </div>
             </div>
         );
 
-        const Portfolio = () => (
+        const KitchensPortfolio = () => (
             <div className="pt-40 px-6 max-w-7xl mx-auto pb-24 animate-fade-in">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-16 px-4">
                     <div>
-                        <div className="text-[10px] uppercase tracking-[0.4em] font-black text-neutral-400 mb-4">Gallery Showcase</div>
-                        <h1 className="text-5xl md:text-8xl font-serif font-black text-neutral-900 leading-none">Our <span className="italic text-neutral-500">Masterpieces</span></h1>
+                        <div className="text-[10px] uppercase tracking-[0.4em] font-black text-neutral-400 mb-4">Kitchen Portfolio</div>
+                        <h1 className="text-5xl md:text-8xl font-serif font-black text-neutral-900 leading-none">Our <span className="italic text-neutral-500">Kitchens</span></h1>
                     </div>
-                    <p className="text-neutral-500 text-xl font-medium italic max-w-sm">A curated selection of our finest kitchen and bedroom projects across the UK.</p>
+                    <p className="text-neutral-500 text-xl font-medium italic max-w-sm">A curated selection of our finest bespoke kitchen projects across the UK.</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    {ASSETS.PORTFOLIO.map((k, idx) => (
+                    {ASSETS.KITCHENS.map((k, idx) => (
                         <div key={k.id} className="group">
                             <div className="glass-card rounded-[48px] p-5 h-full relative overflow-hidden flex flex-col border-white/40 shadow-xl transition-all duration-500 hover:shadow-2xl">
                                 <div className="relative aspect-[4/5] rounded-[36px] overflow-hidden mb-8">
                                     <img 
                                         src={k.image} 
                                         alt={k.title}
+                                        loading="lazy"
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 grayscale-[0.1] group-hover:grayscale-0"
+                                    />
+                                    <div className="absolute inset-0 bg-neutral-900/10 group-hover:bg-transparent transition-colors duration-500" />
+                                </div>
+                                <div className="px-5 pb-6">
+                                    <p className="text-[10px] font-black uppercase tracking-[0.3em] text-neutral-400 mb-2">{k.subtitle}</p>
+                                    <h3 className="text-3xl font-serif font-black text-neutral-900 mb-4">{k.title}</h3>
+                                    <p className="text-neutral-500 text-sm italic font-medium leading-relaxed">{k.description}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        );
+
+        const WardrobesPortfolio = () => (
+            <div className="pt-40 px-6 max-w-7xl mx-auto pb-24 animate-fade-in">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-16 px-4">
+                    <div>
+                        <div className="text-[10px] uppercase tracking-[0.4em] font-black text-neutral-400 mb-4">Wardrobes & Commercial</div>
+                        <h1 className="text-5xl md:text-8xl font-serif font-black text-neutral-900 leading-none">Bespoke <span className="italic text-neutral-500">Fitted</span></h1>
+                    </div>
+                    <p className="text-neutral-500 text-xl font-medium italic max-w-sm">Explore our custom bedroom wardrobes and precision commercial fit-outs.</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    {ASSETS.WARDROBES.map((k, idx) => (
+                        <div key={k.id} className="group">
+                            <div className="glass-card rounded-[48px] p-5 h-full relative overflow-hidden flex flex-col border-white/40 shadow-xl transition-all duration-500 hover:shadow-2xl">
+                                <div className="relative aspect-[4/5] rounded-[36px] overflow-hidden mb-8">
+                                    <img 
+                                        src={k.image} 
+                                        alt={k.title}
+                                        loading="lazy"
                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 grayscale-[0.1] group-hover:grayscale-0"
                                     />
                                     <div className="absolute inset-0 bg-neutral-900/10 group-hover:bg-transparent transition-colors duration-500" />
@@ -582,7 +818,8 @@
                                         </div>
                                         <div>
                                             <p className="text-xs uppercase tracking-widest font-black text-neutral-500 mb-1">Direct Contact</p>
-                                            <p className="text-lg font-bold">07883 758995</p>
+                                            <p className="text-lg font-bold">+44 7883 758995</p>
+                                            <p className="text-lg font-bold mt-1">+44 7727 370467</p>
                                         </div>
                                     </div>
 
@@ -678,7 +915,8 @@
                     <main className="min-h-screen">
                         {activePage === 'home' && <Home setActivePage={setActivePage} />}
                         {activePage === 'about' && <About />}
-                        {activePage === 'portfolio' && <Portfolio />}
+                        {activePage === 'kitchens' && <KitchensPortfolio />}
+                        {activePage === 'wardrobes' && <WardrobesPortfolio />}
                         {activePage === 'contact' && <Contact />}
                     </main>
 
