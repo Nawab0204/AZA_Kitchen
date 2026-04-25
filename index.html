@@ -68,7 +68,7 @@
     </script>
     
     <!-- Tailwind CSS 4 -->
-    <script src="https://unpkg.com/@tailwindcss/browser@4" defer></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,15 +76,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,300;7..72,400;7..72,500;7..72,600&family=Nunito+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     
     <!-- React & Babel -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js" defer></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" defer></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js" defer></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <!-- EmailJS -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <style type="text/tailwindcss">
         @theme {
@@ -157,7 +157,7 @@
             KITCHENS: [
                 {
                   id: 1,
-                  title: "shaker-style doors",
+                  title: "Slab-Front Handleless",
                   subtitle: "Minimalist Design",
                   image: "assets/images/portfolio1.jpg",
                   description: "Achieve a seamless, minimalist look with smooth, handleless doors. Perfect for a clean and ultra-modern aesthetic."
@@ -744,7 +744,7 @@
                 if (!formRef.current) return;
                 setFormStatus('sending');
                 
-                emailjs.sendForm('service_celhx6a', 'template_2ls8f9w', formRef.current, 'dMIkk7Bzv9al7M4bb')
+                emailjs.sendForm('service_r5ag82n', 'template_loohzwr', formRef.current, 'b6jHZLFH0UnK9BTb-')
                     .then((result) => {
                         setFormStatus('success');
                         formRef.current?.reset();
@@ -783,7 +783,8 @@
                                         </div>
                                         <div>
                                             <p className="text-xs uppercase tracking-widest font-black text-neutral-500 mb-1">Direct Contact</p>
-                                            <p className="text-lg font-bold">7883 758995</p>
+                                            <p className="text-lg font-bold">+44 7883 758995</p>
+                                            <p className="text-lg font-bold mt-1">+44 7727 370467</p>
                                         </div>
                                     </div>
 
@@ -801,17 +802,17 @@
 
                             <div className="mt-16 flex gap-6">
                                 <a href="https://www.instagram.com/abuzaid_2222/reels/" target="_blank" rel="noreferrer" className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center hover:bg-white hover:text-neutral-900 transition-all shadow-lg">
-                                    <Icon name="Instagram" className="w-6 h-6" />
+                                    <InstagramLogo className="w-6 h-6" />
                                 </a>
                                 <a href="#" className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center hover:bg-white hover:text-neutral-900 transition-all shadow-lg">
-                                    <Icon name="Facebook" className="w-6 h-6" />
+                                    <FacebookLogo className="w-6 h-6" />
                                 </a>
                             </div>
                         </div>
 
                         <div className="lg:col-span-7 p-12 md:p-24 bg-white/60 relative backdrop-blur-3xl">
                             <form ref={formRef} onSubmit={sendEmail} className="relative z-10 flex flex-col gap-10">
-                                <div className="grid md:grid-cols-2 gap-10">
+                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                     <div className="flex flex-col gap-3">
                                         <label className="text-[10px] uppercase tracking-[0.2em] font-black text-neutral-400 px-1">Full Name</label>
                                         <input 
@@ -829,6 +830,16 @@
                                             name="user_email"
                                             required
                                             placeholder="john@example.com"
+                                            className="bg-white border border-neutral-100 rounded-3xl p-6 focus:outline-none focus:ring-4 focus:ring-neutral-900/5 transition-all text-neutral-900 font-bold shadow-sm"
+                                        />
+                                    </div>
+                                    <div className="flex flex-col gap-3">
+                                        <label className="text-[10px] uppercase tracking-[0.2em] font-black text-neutral-400 px-1">Phone</label>
+                                        <input 
+                                            type="tel" 
+                                            name="user_phone"
+                                            required
+                                            placeholder="+44 7000 000000"
                                             className="bg-white border border-neutral-100 rounded-3xl p-6 focus:outline-none focus:ring-4 focus:ring-neutral-900/5 transition-all text-neutral-900 font-bold shadow-sm"
                                         />
                                     </div>
@@ -851,7 +862,7 @@
                                 >
                                     {formStatus === 'idle' && <React.Fragment><Icon name="Send" className="w-8 h-8" /> Send Message</React.Fragment>}
                                     {formStatus === 'sending' && "Processing..."}
-                                    {formStatus === 'success' && <React.Fragment><Icon name="CheckCircle2" className="w-8 h-8" /> Message Sent!</React.Fragment>}
+                                    {formStatus === 'success' && <React.Fragment><Icon name="CheckCircle" className="w-8 h-8" /> Message Sent!</React.Fragment>}
                                     {formStatus === 'error' && "Error! Please retry."}
                                 </button>
                             </form>
@@ -864,9 +875,22 @@
         // --- App Root ---
 
         const App = () => {
-            const [activePage, setActivePage] = useState('home');
+            const getInitialPage = () => {
+                const hash = window.location.hash.replace('#', '');
+                return ['home', 'about', 'kitchens', 'wardrobes', 'contact'].includes(hash) ? hash : 'home';
+            };
+            const [activePage, setActivePage] = useState(getInitialPage);
 
             useEffect(() => {
+                const handleHashChange = () => {
+                    setActivePage(getInitialPage());
+                };
+                window.addEventListener('hashchange', handleHashChange);
+                return () => window.removeEventListener('hashchange', handleHashChange);
+            }, []);
+
+            useEffect(() => {
+                window.location.hash = activePage;
                 window.scrollTo(0, 0);
             }, [activePage]);
 
