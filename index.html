@@ -14,6 +14,9 @@
     
     <title>AZA Kitchen and Bedroom | Bespoke Wardrobe Specialists Birmingham</title>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='url(%23grad)'/><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%23d4af37'/><stop offset='100%' stop-color='%23171717'/></linearGradient></defs><text x='50' y='65' font-family='serif' font-size='45' font-weight='bold' fill='white' text-anchor='middle'>AZ</text></svg>">
+
     <link rel="canonical" href="https://azakitchens.uk/">
 
     <!-- Performance Optimizations -->
@@ -744,13 +747,13 @@
                 if (!formRef.current) return;
                 setFormStatus('sending');
                 
-                emailjs.sendForm('service_r5ag82n', 'template_loohzwr', formRef.current, 'b6jHZLFH0UnK9BTb-')
+                emailjs.sendForm('service_r5ag82n', 'template_loohzwr', formRef.current, { publicKey: 'b6jHZLFH0UnK9BTb-' })
                     .then((result) => {
                         setFormStatus('success');
                         formRef.current?.reset();
                         setTimeout(() => setFormStatus('idle'), 5000);
                     }, (error) => {
-                        console.error(error.text);
+                        console.error("EmailJS Error:", error);
                         setFormStatus('error');
                         setTimeout(() => setFormStatus('idle'), 5000);
                     });
