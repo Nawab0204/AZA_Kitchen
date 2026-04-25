@@ -299,26 +299,24 @@
 
         // --- Icons Helper ---
         const Icon = ({ name, className }) => {
-            const iconRef = useRef(null);
+            const spanRef = useRef(null);
             useEffect(() => {
-                if (iconRef.current && window.lucide) {
-                    if (window.lucide.icons[name]) {
-                        window.lucide.createIcons({
-                            attrs: { class: className },
-                            nameAttr: 'data-lucide',
-                            icons: { [name]: window.lucide.icons[name] }
-                        });
-                    } else if (window.lucide.icons['Circle']) {
-                        // Fallback icon to prevent crash
-                        window.lucide.createIcons({
-                            attrs: { class: className },
-                            nameAttr: 'data-lucide',
-                            icons: { [name]: window.lucide.icons['Circle'] }
-                        });
-                    }
+                if (spanRef.current && window.lucide) {
+                    const iconName = window.lucide.icons[name] ? name : 'Circle';
+                    
+                    // Reset inner HTML to the i tag so createIcons can replace it again if name/className changes
+                    spanRef.current.innerHTML = `<i data-lucide="${iconName}"></i>`;
+                    
+                    window.lucide.createIcons({
+                        root: spanRef.current,
+                        attrs: { class: className },
+                        nameAttr: 'data-lucide',
+                        icons: { [iconName]: window.lucide.icons[iconName] }
+                    });
                 }
             }, [name, className]);
-            return <i data-lucide={name} className={className} ref={iconRef}></i>;
+            
+            return <span ref={spanRef} className="inline-flex items-center justify-center align-middle" />;
         };
 
         // --- Social/Custom Icons ---
@@ -756,11 +754,14 @@
                 if (!formRef.current) return;
                 setFormStatus('sending');
                 
-                emailjs.sendForm('service_r5ag82n', 'template_loohzwr', formRef.current, { publicKey: 'b6jHZLFH0UnK9BTb-' })
+                emailjs.sendForm('service_celhx6a', 'template_2ls8f9w', formRef.current, { publicKey: 'dMIkk7Bzv9al7M4bb' })
                     .then((result) => {
                         setFormStatus('success');
                         formRef.current?.reset();
-                        setTimeout(() => setFormStatus('idle'), 5000);
+                        setTimeout(() => {
+                            setFormStatus('idle');
+                            window.location.hash = 'home';
+                        }, 3000);
                     }, (error) => {
                         console.error("EmailJS Error:", error);
                         setFormStatus('error');
@@ -869,12 +870,12 @@
                                 </div>
 
                                 <button 
-                                    disabled={formStatus === 'sending'}
-                                    className="bg-neutral-900 text-white rounded-[32px] p-8 font-black text-2xl shadow-2xl flex items-center justify-center gap-3 hover:bg-neutral-800 transition-all active:scale-95 disabled:opacity-50"
+                                    disabled={formStatus === 'sending' || formStatus === 'success'}
+                                    className="bg-neutral-900 text-white rounded-[32px] p-8 font-black text-2xl shadow-2xl flex items-center justify-center gap-3 hover:bg-neutral-800 transition-all active:scale-95 disabled:opacity-80"
                                 >
                                     {formStatus === 'idle' && <React.Fragment><Icon name="Send" className="w-8 h-8" /> Send Message</React.Fragment>}
                                     {formStatus === 'sending' && "Processing..."}
-                                    {formStatus === 'success' && <React.Fragment><Icon name="CheckCircle" className="w-8 h-8" /> Message Sent!</React.Fragment>}
+                                    {formStatus === 'success' && "Thank you. We will contact you back shortly."}
                                     {formStatus === 'error' && "Error! Please retry."}
                                 </button>
                             </form>
