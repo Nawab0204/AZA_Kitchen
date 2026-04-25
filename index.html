@@ -302,11 +302,20 @@
             const iconRef = useRef(null);
             useEffect(() => {
                 if (iconRef.current && window.lucide) {
-                    window.lucide.createIcons({
-                        attrs: { class: className },
-                        nameAttr: 'data-lucide',
-                        icons: { [name]: window.lucide.icons[name] }
-                    });
+                    if (window.lucide.icons[name]) {
+                        window.lucide.createIcons({
+                            attrs: { class: className },
+                            nameAttr: 'data-lucide',
+                            icons: { [name]: window.lucide.icons[name] }
+                        });
+                    } else if (window.lucide.icons['Circle']) {
+                        // Fallback icon to prevent crash
+                        window.lucide.createIcons({
+                            attrs: { class: className },
+                            nameAttr: 'data-lucide',
+                            icons: { [name]: window.lucide.icons['Circle'] }
+                        });
+                    }
                 }
             }, [name, className]);
             return <i data-lucide={name} className={className} ref={iconRef}></i>;
@@ -442,10 +451,10 @@
                     </div>
 
                     <div className="flex gap-6">
-                        <a href="https://www.instagram.com/abuzaid_2222/reels/" target="_blank" rel="noreferrer" className="w-12 h-12 glass-card rounded-2xl flex items-center justify-center hover:bg-neutral-900 hover:text-white transition-all shadow-sm">
+                        <a href="https://www.instagram.com/abuzaid_2222/reels/" target="_blank" rel="noreferrer" className="w-12 h-12 glass-card text-neutral-900 rounded-2xl flex items-center justify-center hover:bg-neutral-900 hover:text-white transition-all shadow-sm">
                             <InstagramLogo className="w-5 h-5" />
                         </a>
-                        <a href="#" className="w-12 h-12 glass-card rounded-2xl flex items-center justify-center hover:bg-neutral-900 hover:text-white transition-all shadow-sm">
+                        <a href="#" className="w-12 h-12 glass-card text-neutral-900 rounded-2xl flex items-center justify-center hover:bg-neutral-900 hover:text-white transition-all shadow-sm">
                             <FacebookLogo className="w-5 h-5" />
                         </a>
                     </div>
@@ -804,10 +813,10 @@
                             </div>
 
                             <div className="mt-16 flex gap-6">
-                                <a href="https://www.instagram.com/abuzaid_2222/reels/" target="_blank" rel="noreferrer" className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center hover:bg-white hover:text-neutral-900 transition-all shadow-lg">
+                                <a href="https://www.instagram.com/abuzaid_2222/reels/" target="_blank" rel="noreferrer" className="w-12 h-12 bg-white/10 text-white rounded-2xl flex items-center justify-center hover:bg-white hover:text-neutral-900 transition-all shadow-lg">
                                     <InstagramLogo className="w-6 h-6" />
                                 </a>
-                                <a href="#" className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center hover:bg-white hover:text-neutral-900 transition-all shadow-lg">
+                                <a href="#" className="w-12 h-12 bg-white/10 text-white rounded-2xl flex items-center justify-center hover:bg-white hover:text-neutral-900 transition-all shadow-lg">
                                     <FacebookLogo className="w-6 h-6" />
                                 </a>
                             </div>
