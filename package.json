@@ -1,0 +1,12 @@
+{
+  "name": "aza-kitchens-static",
+  "version": "1.0.0",
+  "description": "Static site",
+  "scripts": {
+    "build": "echo 'No build step required'",
+    "start": "npx serve -s -p 3000 ."
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}
